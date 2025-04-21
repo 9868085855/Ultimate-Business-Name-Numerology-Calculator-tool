@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Business Name Numerology Calculator | Free Online Tool</title>
+    <meta name="description" content="Free advanced numerology calculator for business names. Discover your Expression Number, Soul Urge Number, Personality Number and how they impact your business success.">
+    <meta name="keywords" content="business name numerology calculator, numerology calculator, business numerology, name numerology, expression number calculator, ultimate numerology calculator">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6C63FF;
+            --primary-dark: #4D44DB;
+            --secondary: #FF6584;
+            --light: #F8F9FA;
+            --dark: #1A1A2E;
+            --gray: #6C757D;
+            --light-gray: #E9ECEF;
+            --bg-gradient: linear-gradient(135deg, #6C63FF 0%, #4D44DB 100%);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.7;
+            color: var(--dark);
+            background-color: #f5f7ff;
+        }
+        
+        /* Header Styles */
+        .main-header {
+            background: var(--bg-gradient);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: white;
+        }
+        
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Ad Banner Styles */
+        .ad-banner {
+            background: var(--light);
+            border: 1px solid var(--light-gray);
+            padding: 1rem;
+            text-align: center;
+            margin: 1rem 0;
+            border-radius: 8px;
+        }
+        
+        .ad-banner img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Main Content Styles */
+        header {
+            text-align: center;
+            padding: 3rem 0;
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+        }
+        
+        .lead {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--gray);
+        }
+        
+        section {
+            margin-bottom: 3rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        h2 {
+            color: var(--primary-dark);
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+        
+        h3 {
+            color: var(--primary);
+            margin: 1.5rem 0 1rem;
+        }
+        
+        p {
+            margin-bottom: 1.2rem;
+        }
+        
+        ul, ol {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Calculator Styles */
+        .calculator-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 2rem;
+            margin: 3rem auto;
+            max-width: 800px;
+        }
+        
+        .calculator-container h2 {
+            text-align: center;
+        }
+        
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        input[type="text"] {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid var(--light-gray);
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        
+        button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s;
+        }
+        
+        button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        /* Results Styles */
+        .result-container {
+            display: none;
+            margin-top: 2rem;
+            padding: 2rem;
+            background: var(--light);
+            border-radius: 8px;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .number-display {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .number-value {
+            font-size: 4rem;
+            font-weight: 700;
+            background: var(--bg-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
+        }
+        
+        .number-label {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .numerology-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .numerology-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--primary);
+        }
+        
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .brand-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .brand-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .brand-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        /* About and Contact Sections */
+        #about, #contact {
+            padding: 4rem 0;
+        }
+        
+        #about {
+            background: var(--light);
+        }
+        
+        #contact {
+            background: white;
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .contact-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        /* Footer Styles */
+        .main-footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0 1rem;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .copyright {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+            }
+            
+            section {
+                padding: 1.5rem;
+            }
+            
+            .number-value {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Logo and Navigation -->
+    <header class="main-header">
+        <div class="header-container">
+            <a href="#" class="logo">
+                <img src="https://via.placeholder.com/40x40" alt="Numerology Calculator Logo">
+                <span>Numerology Calculator</span>
+            </a>
+            <nav class="nav-links">
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Top Ad Banner -->
+        <div class="ad-banner">
+            <img src="https://via.placeholder.com/728x90" alt="Advertisement">
+        </div>
+
+        <!-- Main Calculator Content (Preserved from previous version) -->
+        <header>
+            <h1>Ultimate Business Name Numerology Calculator</h1>
+            <p class="lead">Discover the hidden power in your business name and unlock your company's true potential with our free numerology analysis</p>
+        </header>
+        
+        <article>
+            <section>
+                <h2>What is Business Name Numerology?</h2>
+                <p>Business name numerology is an ancient metaphysical science that analyzes the vibrational energy of your company name to reveal insights about your business's destiny, challenges, and opportunities. Just as individuals have numerology charts, your business name carries specific numerical vibrations that influence:</p>
+                
+                <ul>
+                    <li><strong>Brand perception</strong> - How customers instinctively feel about your business</li>
+                    <li><strong>Financial success</strong> - The money-attracting potential of your name</li>
+                    <li><strong>Market positioning</strong> - Whether you're seen as a leader, innovator, or service provider</li>
+                    <li><strong>Growth potential</strong> - The long-term viability of your business name</li>
+                </ul>
+                
+                <p>Many Fortune 500 companies, including Apple, Google, and Starbucks, have names with powerful numerological significance that contribute to their success.</p>
+            </section>
+            
+            <section>
+                <h2>How Numerology Works for Business Names</h2>
+                <p>The Pythagorean system (the most widely used numerology method) assigns each letter a numerical value from 1 to 9. By converting the letters in your business name to numbers and reducing them to single digits (except for master numbers 11, 22, and 33), we calculate three core numbers:</p>
+                
+                <div class="numerology-grid">
+                    <div class="numerology-card">
+                        <h3><i class="fas fa-bullseye"></i> Expression Number</h3>
+                        <p><strong>Also called Destiny Number</strong></p>
+                        <p>Calculated from all letters in your name, this reveals your business's:</p>
+                        <ul>
+                            <li>Overall purpose and mission</li>
+                            <li>Potential for success</li>
+                            <li>Core energy you project</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="numerology-card">
+                        <h3><i class="fas fa-heart"></i> Soul Urge Number</h3>
+                        <p><strong>Also called Heart's Desire Number</strong></p>
+                        <p>Calculated from vowels in your name, this reveals:</p>
+                        <ul>
+                            <li>Your company's inner motivation</li>
+                            <li>Emotional drive behind your business</li>
+                            <li>What truly inspires your brand</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="numerology-card">
+                        <h3><i class="fas fa-mask"></i> Personality Number</h3>
+                        <p><strong>Also called Outer Expression Number</strong></p>
+                        <p>Calculated from consonants in your name, this shows:</p>
+                        <ul>
+                            <li>How customers perceive your business</li>
+                            <li>Your brand's first impression</li>
+                            <li>The face you show to the world</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Ad Banner Before Calculator -->
+            <div class="ad-banner">
+                <img src="https://via.placeholder.com/728x90" alt="Advertisement">
+            </div>
+            
+            <div class="calculator-container">
+                <h2>Free Business Name Numerology Calculator</h2>
+                <p>Discover your business name's hidden numerology in seconds:</p>
+                
+                <div class="input-group">
+                    <label for="businessName">Enter Your Business Name:</label>
+                    <input type="text" id="businessName" placeholder="e.g. Apple, Tesla, Starbucks">
+                </div>
+                
+                <button onclick="calculateNumerology()">
+                    <i class="fas fa-calculator"></i> Calculate My Business Numerology
+                </button>
+                
+                <div id="result" class="result-container">
+                    <h3>Your Numerology Report for: <span id="displayName"></span></h3>
+                    
+                    <div class="number-display">
+                        <div class="number-value" id="expressionNumber"></div>
+                        <div class="number-label">Expression Number</div>
+                    </div>
+                    
+                    <div id="reportContent"></div>
+                    
+                    <div class="numerology-grid" id="coreNumbersGrid"></div>
+                    
+                    <div id="brandsSection">
+                        <h3><i class="fas fa-crown"></i> Successful Brands With This Number</h3>
+                        <div class="brands-grid" id="brandsList"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <section>
+                <h2>Why Business Name Numerology Matters</h2>
+                <p>Your business name is more than just a label - it carries vibrational energy that influences:</p>
+                
+                <h3>1. Customer Attraction</h3>
+                <p>Certain numbers naturally attract specific customer types:</p>
+                <ul>
+                    <li><strong>Number 1 (Leadership):</strong> Attracts innovators & early adopters (like Apple)</li>
+                    <li><strong>Number 6 (Service):</strong> Appeals to caring, loyal customers (like Starbucks)</li>
+                    <li><strong>Number 8 (Power):</strong> Draws high-end, luxury buyers (like Tiffany)</li>
+                </ul>
+                
+                <h3>2. Financial Success</h3>
+                <p>Numbers like 8 and 9 tend to attract wealth, while numbers like 4 may struggle with cash flow unless balanced properly.</p>
+                
+                <h3>3. Brand Recognition</h3>
+                <p>Numerologically strong names are easier to remember and create positive subconscious associations.</p>
+                
+                <h3>4. Competitive Edge</h3>
+                <p>Understanding your name's energy helps you position against competitors more effectively.</p>
+            </section>
+            
+            <section>
+                <h2>How to Use Our Numerology Calculator</h2>
+                <p>Follow these simple steps to get the most from your business name analysis:</p>
+                
+                <div class="numerology-grid">
+                    <div class="numerology-card">
+                        <h3><i class="fas fa-pen"></i> Step 1: Enter Your Name</h3>
+                        <p>Use your legally registered name exactly as it appears on official documents.</p>
+                    </div>
+                    
+                    <div class="numerology-card">
+                        <h3><i class="fas fa-calculator"></i> Step 2: Get Your Numbers</h3>
+                        <p>We'll calculate your Expression, Soul Urge, and Personality numbers.</p>
+                    </div>
+                    
+                    <div class="numerology-card">
+                        <h3><i class="fas fa-chart-bar"></i> Step 3: Analyze Results</h3>
+                        <p>Compare your numbers with successful brands and detailed interpretations.</p>
+                    </div>
+                    
+                    <div class="numerology-card">
+                        <h3><i class="fas fa-rocket"></i> Step 4: Optimize Strategy</h3>
+                        <p>Use insights for branding, launches, and marketing improvements.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section>
+                <h2>Frequently Asked Questions</h2>
+                
+                <div class="faq-item">
+                    <p class="faq-question">Is business name numerology scientifically proven?</p>
+                    <p>While numerology isn't recognized as a hard science, it's been used for thousands of years across multiple cultures. Many successful business leaders use numerology as one tool among many for strategic decision-making. The patterns observed in successful business names are often too consistent to dismiss as mere coincidence.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <p class="faq-question">Should I change my business name if the numerology is bad?</p>
+                    <p>Not necessarily. Our calculator provides balancing strategies for challenging numbers. Sometimes small adjustments (like adding or removing a letter) can significantly improve the energy without requiring a complete rebrand.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <p class="faq-question">How accurate is this calculator?</p>
+                    <p>Our calculator uses the authentic Pythagorean numerology system, the same method used by professional numerologists. For common names, it's extremely accurate. For very unique names or those with special characters, we recommend consulting a professional numerologist for deeper analysis.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <p class="faq-question">Do I need to use my legal business name?</p>
+                    <p>For most accurate results, use the name that appears on your official registration. However, you can also test your "doing business as" (DBA) name or nickname to see how the energy compares.</p>
+                </div>
+            </section>
+            
+            <section id="about">
+                <h2>About Our Numerology Calculator</h2>
+                <p>Our Ultimate Business Name Numerology Calculator was developed by a team of numerology enthusiasts and web developers who wanted to create the most accurate and comprehensive free numerology tool available online.</p>
+                
+                <h3>Our Mission</h3>
+                <p>To help business owners understand the hidden vibrational energy in their business names and use this knowledge to optimize their branding, marketing, and overall business strategy.</p>
+                
+                <h3>How We're Different</h3>
+                <ul>
+                    <li><strong>Most Comprehensive:</strong> Calculates all three core numbers (Expression, Soul Urge, and Personality)</li>
+                    <li><strong>Professional Accuracy:</strong> Uses the authentic Pythagorean numerology system</li>
+                    <li><strong>Practical Insights:</strong> Provides actionable business advice based on your numbers</li>
+                    <li><strong>Completely Free:</strong> No hidden fees or premium upsells</li>
+                </ul>
+            </section>
+            
+            <section id="contact">
+                <h2>Contact Us</h2>
+                <p>Have questions or feedback about our numerology calculator? We'd love to hear from you!</p>
+                
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <h3><i class="fas fa-envelope"></i> Email Us</h3>
+                        <p>support@numerologycalculator.com</p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <h3><i class="fas fa-phone"></i> Call Us</h3>
+                        <p>+1 (555) 123-4567</p>
+                        <p>Monday-Friday, 9am-5pm EST</p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <h3><i class="fas fa-map-marker-alt"></i> Our Office</h3>
+                        <p>123 Numerology Way</p>
+                        <p>New York, NY 10001</p>
+                    </div>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">Home</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+            <p class="copyright">© <span id="year"></span> Ultimate Business Name Numerology Calculator. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Numerology letter values (Pythagorean system)
+        const letterValues = {
+            'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 6, 'G': 7, 'H': 8, 'I': 9,
+            'J': 1, 'K': 2, 'L': 3, 'M': 4, 'N': 5, 'O': 6, 'P': 7, 'Q': 8, 'R': 9,
+            'S': 1, 'T': 2, 'U': 3, 'V': 4, 'W': 5, 'X': 6, 'Y': 7, 'Z': 8
+        };
+        
+        // Vowels for Soul Urge Number
+        const vowels = ['A', 'E', 'I', 'O', 'U'];
+        
+        function calculateNumerology() {
+            const name = document.getElementById('businessName').value.trim().toUpperCase();
+            if (!name) {
+                alert('Please enter your business name');
+                return;
+            }
+            
+            document.getElementById('displayName').textContent = name;
+            
+            // Calculate Expression Number (sum of all letters)
+            const expressionNumber = reduceToSingleDigit(
+                name.split('').reduce((sum, letter) => 
+                    sum + (letterValues[letter] || 0), 0)
+            );
+            
+            // Calculate Soul Urge Number (sum of vowels)
+            const soulUrgeNumber = reduceToSingleDigit(
+                name.split('').reduce((sum, letter) => 
+                    vowels.includes(letter) ? sum + (letterValues[letter] || 0) : sum, 0)
+            );
+            
+            // Calculate Personality Number (sum of consonants)
+            const personalityNumber = reduceToSingleDigit(
+                name.split('').reduce((sum, letter) => 
+                    !vowels.includes(letter) ? sum + (letterValues[letter] || 0) : sum, 0)
+            );
+            
+            // Display results
+            document.getElementById('expressionNumber').textContent = expressionNumber;
+            
+            // Generate report
+            generateNumerologyReport(name, expressionNumber, soulUrgeNumber, personalityNumber);
+            
+            // Show results
+            document.getElementById('result').style.display = 'block';
+            document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function reduceToSingleDigit(number) {
+            if (number === 11 || number === 22 || number === 33) return number; // Master numbers
+            
+            while (number > 9) {
+                number = number.toString().split('')
+                         .reduce((sum, digit) => sum + parseInt(digit), 0);
+            }
+            return number;
+        }
+        
+        function generateNumerologyReport(name, expression, soulUrge, personality) {
+            const numberMeanings = {
+                1: { 
+                    expression: "Leadership, Innovation", 
+                    soulUrge: "Independence", 
+                    personality: "Strong",
+                    brands: ["Apple", "Nike", "Tesla"],
+                    interpretation: "Your business is destined to be a pioneer in your industry with strong leadership qualities. You attract customers who value innovation and bold ideas."
+                },
+                2: { 
+                    expression: "Cooperation, Harmony", 
+                    soulUrge: "Partnership", 
+                    personality: "Diplomatic",
+                    brands: ["Coca-Cola", "Pepsi", "Adobe"],
+                    interpretation: "Your business thrives through partnerships and excellent customer relationships. You attract clients who value harmony and teamwork."
+                },
+                3: { 
+                    expression: "Creativity, Expression", 
+                    soulUrge: "Joy", 
+                    personality: "Social",
+                    brands: ["Disney", "Twitter", "eBay"],
+                    interpretation: "Your business radiates creative energy and social appeal. You attract customers who value self-expression and optimism."
+                },
+                4: { 
+                    expression: "Stability, Organization", 
+                    soulUrge: "Security", 
+                    personality: "Reliable",
+                    brands: ["IBM", "Ford", "Walmart"],
+                    interpretation: "Your business is seen as stable and trustworthy. You attract clients who value reliability and practical solutions."
+                },
+                5: { 
+                    expression: "Freedom, Change", 
+                    soulUrge: "Adventure", 
+                    personality: "Adaptable",
+                    brands: ["Google", "Amazon", "FedEx"],
+                    interpretation: "Your business thrives on adaptability and progressive ideas. You attract customers who value innovation and flexibility."
+                },
+                6: { 
+                    expression: "Service, Responsibility", 
+                    soulUrge: "Nurturing", 
+                    personality: "Caring",
+                    brands: ["Starbucks", "Target", "Whole Foods"],
+                    interpretation: "Your business excels in service and creating harmonious experiences. You attract loyal customers who value care and attention."
+                },
+                7: { 
+                    expression: "Analysis, Wisdom", 
+                    soulUrge: "Understanding", 
+                    personality: "Mysterious",
+                    brands: ["Microsoft", "Intel", "Oracle"],
+                    interpretation: "Your business is seen as knowledgeable and specialized. You attract clients who value quality and expertise."
+                },
+                8: { 
+                    expression: "Power, Success", 
+                    soulUrge: "Achievement", 
+                    personality: "Authoritative",
+                    brands: ["Exxon", "JPMorgan", "Goldman Sachs"],
+                    interpretation: "Your business has strong potential for financial success. You attract clients who value achievement and authority."
+                },
+                9: { 
+                    expression: "Humanitarianism, Completion", 
+                    soulUrge: "Compassion", 
+                    personality: "Idealistic",
+                    brands: ["Airbnb", "LinkedIn", "Pinterest"],
+                    interpretation: "Your business has a broad, humanitarian appeal. You attract customers who share your ideals and vision."
+                },
+                11: { 
+                    expression: "Vision, Inspiration", 
+                    soulUrge: "Intuition", 
+                    personality: "Enlightened",
+                    brands: ["SpaceX", "Virgin", "WeWork"],
+                    interpretation: "Your business has visionary potential to inspire and transform. You attract clients who value innovation and big ideas."
+                },
+                22: { 
+                    expression: "Master Builder", 
+                    soulUrge: "Practical Vision", 
+                    personality: "Powerful",
+                    brands: ["Alphabet", "Berkshire Hathaway", "Boeing"],
+                    interpretation: "Your business has potential for large-scale, practical achievements. You attract clients who value substantial, lasting results."
+                },
+                33: { 
+                    expression: "Master Teacher", 
+                    soulUrge: "Healing", 
+                    personality: "Compassionate",
+                    brands: ["United Nations", "Red Cross", "WWF"],
+                    interpretation: "Your business has a healing, teaching mission. You attract clients who share your compassionate values."
+                }
+            };
+            
+            // Generate core numbers grid
+            const coreNumbersHTML = `
+                <div class="numerology-card">
+                    <h3><i class="fas fa-heart"></i> Soul Urge Number</h3>
+                    <div class="number-value">${soulUrge}</div>
+                    <p><strong>${numberMeanings[soulUrge].soulUrge}</strong></p>
+                    <p>Your business's inner motivation and deepest desires</p>
+                </div>
+                
+                <div class="numerology-card">
+                    <h3><i class="fas fa-mask"></i> Personality Number</h3>
+                    <div class="number-value">${personality}</div>
+                    <p><strong>${numberMeanings[personality].personality}</strong></p>
+                    <p>How customers perceive your business</p>
+                </div>
+            `;
+            
+            document.getElementById('coreNumbersGrid').innerHTML = coreNumbersHTML;
+            
+            // Generate interpretation
+            const interpretationHTML = `
+                <h3><i class="fas fa-lightbulb"></i> Interpretation</h3>
+                <p>${numberMeanings[expression].interpretation}</p>
+                
+                <h3><i class="fas fa-chart-line"></i> Business Strategy Tips</h3>
+                <ul>
+                    <li>Leverage your ${numberMeanings[expression].expression.toLowerCase()} energy in marketing</li>
+                    <li>Align your branding with your core numbers</li>
+                    <li>Consider timing important launches with your lucky numbers</li>
+                </ul>
+            `;
+            
+            document.getElementById('reportContent').innerHTML = interpretationHTML;
+            
+            // Generate brands list
+            const brandsHTML = numberMeanings[expression].brands.map(brand => `
+                <div class="brand-card">
+                    <div class="brand-icon">${getBrandIcon(brand)}</div>
+                    <div class="brand-name">${brand}</div>
+                </div>
+            `).join('');
+            
+            document.getElementById('brandsList').innerHTML = brandsHTML;
+        }
+        
+        function getBrandIcon(brand) {
+            const icons = {
+                "Apple": "🍎", "Nike": "👟", "Tesla": "⚡", "Google": "🔍", "Amazon": "📦",
+                "Microsoft": "🖥️", "Disney": "🏰", "Coca-Cola": "🥤", "Starbucks": "☕", "IBM": "💻",
+                "Ford": "🚗", "SpaceX": "🚀", "United Nations": "🌍", "Twitter": "🐦", "eBay": "💰",
+                "Visa": "💳", "PayPal": "💲", "Walmart": "🛒", "Goldman Sachs": "💵", "Red Cross": "➕",
+                "Pepsi": "🥤", "Adobe": "✏️", "Target": "🎯", "Whole Foods": "🍏", "Intel": "🔌",
+                "Oracle": "🏛️", "Exxon": "⛽", "JPMorgan": "🏦", "Airbnb": "🏠", "LinkedIn": "💼",
+                "Pinterest": "📌", "Alphabet": "🔤", "Berkshire Hathaway": "📈", "Boeing": "✈️", "Virgin": "✌️",
+                "WeWork": "🏢", "WWF": "🐼"
+            };
+            return icons[brand] || "🏢";
+        }
+    </script>
+</body>
+</html>
